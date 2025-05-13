@@ -1,0 +1,21 @@
+// ─────────────────────────────────────────────────────────────────────────────
+// LibGDXGame/build.gradle (루트)
+// ─────────────────────────────────────────────────────────────────────────────
+
+buildscript {
+    ext {
+        gdxVersion = '1.13.1'  // LibGDX 버전은 여기서 관리
+    }
+    repositories {
+        mavenCentral()
+    }
+}
+
+allprojects {
+    apply plugin: 'eclipse'
+    apply plugin: 'idea'
+
+    repositories {
+        mavenCentral()
+    }
+}

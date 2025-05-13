@@ -1,0 +1,2 @@
+rootProject.name = 'LibGDXGame'
+include 'core', 'desktop'
