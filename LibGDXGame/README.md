@@ -1,35 +1,124 @@
-# MyDotGame
+# 🔦 Reflexion – 빛을 이용한 전략 미로 탈출 게임
 
-A [libGDX](https://libgdx.com/) project generated with [gdx-liftoff](https://github.com/libgdx/gdx-liftoff).
+> 빛을 쏘아 미로를 탈출하라! 단 4발의 빛으로 퍼즐을 풀고 문을 여는 전략 퍼즐 게임.
 
-This project was generated with a template including simple application launchers and an `ApplicationAdapter` extension that draws libGDX logo.
+---
 
-## Platforms
+## 📌 목차
+- [게임 개요](#게임-개요)
+- [게임 목표](#게임-목표)
+- [핵심 메커니즘](#핵심-메커니즘)
+- [게임 컨셉](#게임-컨셉)
+- [사용 기술](#사용-기술)
+- [플레이 방법](#플레이-방법)
+- [향후 계획](#향후-계획)
+- [스크린샷](#스크린샷)
+- [기여자](#기여자)
+- [라이선스](#라이선스)
 
-- `core`: Main module with the application logic shared by all platforms.
-- `lwjgl3`: Primary desktop platform using LWJGL3; was called 'desktop' in older docs.
-- `android`: Android mobile platform. Needs Android SDK.
+---
 
-## Gradle
+## 🎮 게임 개요
 
-This project uses [Gradle](https://gradle.org/) to manage dependencies.
-The Gradle wrapper was included, so you can run Gradle tasks using `gradlew.bat` or `./gradlew` commands.
-Useful Gradle tasks and flags:
+| 항목 | 내용 |
+|------|------|
+| 장르 | 퍼즐 / 전략 / 미로 탈출 |
+| 플랫폼 | Android (모바일) |
+| 개발 툴 | Android Studio |
+| 조작 | 터치 기반 |
+| 개발 방식 | 팀 협업 |
 
-- `--continue`: when using this flag, errors will not stop the tasks from running.
-- `--daemon`: thanks to this flag, Gradle daemon will be used to run chosen tasks.
-- `--offline`: when using this flag, cached dependency archives will be used.
-- `--refresh-dependencies`: this flag forces validation of all dependencies. Useful for snapshot versions.
-- `android:lint`: performs Android project validation.
-- `build`: builds sources and archives of every project.
-- `cleanEclipse`: removes Eclipse project data.
-- `cleanIdea`: removes IntelliJ project data.
-- `clean`: removes `build` folders, which store compiled classes and built archives.
-- `eclipse`: generates Eclipse project data.
-- `idea`: generates IntelliJ project data.
-- `lwjgl3:jar`: builds application's runnable jar, which can be found at `lwjgl3/build/libs`.
-- `lwjgl3:run`: starts the application.
-- `test`: runs unit tests (if any).
+---
 
-Note that most tasks that are not specific to a single project can be run with `name:` prefix, where the `name` should be replaced with the ID of a specific project.
-For example, `core:clean` removes `build` folder only from the `core` project.
+## 🎯 게임 목표
+
+- 제한된 **4발의 빛**을 사용하여
+- 거울, 발판, 반사 구조물 등의 **지형지물과 상호작용**
+- **미로를 탈출하거나 문을 열어 다음 스테이지로 이동**
+
+---
+
+## 🧩 핵심 메커니즘
+
+| 요소 | 설명 |
+|------|------|
+| 🔦 빛 발사 | 제한된 4발, 방향 지정 후 발사 |
+| 🧱 벽 | 빛이 부착되거나 막힘 |
+| 🪞 거울 | 반사되어 경로 변경 |
+| 🪙 발판 | 빛이 닿으면 문이나 장치가 작동됨 |
+| 🔁 반사 퍼즐 | 각도를 활용한 정밀 반사 설계 |
+| 🎯 색상 필터 (예정) | 색 조합 퍼즐로 난이도 상승 |
+
+---
+
+## ✨ 게임 컨셉
+
+- 어두운 공간에서 **빛이 유일한 해답**
+- 제한된 자원(빛)을 활용하는 **전략적 사고**
+- 직관적이면서도 깊이 있는 **퍼즐 해법 유도**
+- 미니멀한 그래픽, 고요한 몰입감
+
+---
+
+## 🛠 사용 기술
+
+| 항목 | 내용 |
+|------|------|
+| 개발 환경 | Android Studio |
+| 언어 | Java |
+| 렌더링 방식 | Canvas / SurfaceView |
+| 핵심 로직 | Ray 기반 반사/충돌 계산 |
+| 버전 관리 | Git & GitHub 협업 |
+
+---
+
+## 🕹 플레이 방법
+
+1. 화면을 **터치**하여 빛을 쏠 **방향을 지정**합니다.
+2. 방향이 설정되면 **탭하여 빛을 발사**합니다.
+3. 한 스테이지당 **총 4발의 빛**만 사용할 수 있습니다.
+4. **거울에 반사**되거나, **발판에 닿은 빛**은 문을 열거나 장치를 작동시킵니다.
+5. 모든 퍼즐이 해결되면 **문이 열리고 다음 스테이지로 이동**합니다.
+
+---
+
+## 🚧 향후 계획 (기능 구현 로드맵)
+
+- [x] Android Studio 프로젝트 구조 설계
+- [ ] 터치 기반 **빛 발사 및 경로 계산** 로직 구현
+- [ ] **거울 반사 처리** (벡터 각도 기반)
+- [ ] **발판 및 문 작동** 상호작용 처리
+- [ ] **레이 기반 충돌 시스템** 최적화
+- [ ] **스테이지 저장/불러오기** 기능 설계
+- [ ] **레벨 에디터** (내부용 또는 추후 공개용)
+- [ ] **빛 색상 필터 / 조합 퍼즐** 도입
+- [ ] **모바일 터치 UI 개선** (버튼, 이펙트 포함)
+- [ ] 사운드 효과 및 간단한 배경음 추가
+- [ ] 튜토리얼 스테이지 구성
+
+---
+
+## 📸 스크린샷
+
+> 초기 데모 예시 (디자인은 추후 변경될 수 있습니다)
+
+![demo](assets/img/demo_light_puzzle.png)
+
+---
+
+## 🧑‍💻 기여자
+
+| 이름 | 역할 |
+|------|------|
+| 박찬빈 | 팀장, 기획 총괄 |
+| 김민영 | 팀원 |
+| 신현호 | 팀원 |
+| 임헌수 | 팀원 |
+| 이재호 | 팀원 |
+
+---
+
+## 📄 라이선스
+
+이 프로젝트는 MIT License 하에 배포됩니다.  
+자세한 내용은 [`LICENSE`](./LICENSE) 파일을 참고해주세요.
